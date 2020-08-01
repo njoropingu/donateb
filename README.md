@@ -17,3 +17,5 @@ then run the application using your favourite browser.
 
 Step 5 accessing admin
 admin login username, admin respectively are: admin 232323wq!
+
+NB: kindly ensure you have installed composer on your computer
