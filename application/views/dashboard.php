@@ -1,5 +1,22 @@
 <?php defined('BASEPATH') OR exit('no direct script access allowed');?>
+
 <div class="container">
+    <table class="table table-bordered space27">
+        <tr>
+            
+                <th>Consumer Key</th>
+                    <th>Secret</th>
+                    <th>Add Parameters</th>
+        </tr>
+        <?php    foreach($parameter as $param) {?>
+        <tr>
+            <td><?php echo $param->conkey?></td>
+            <td><?php echo $param->secret?></td>
+            <td><a href="<?php echo site_url('dashboard/edit/'.$param->id)?>" class="btn btn-primary">Update Parameters</a></td>
+        </tr>
+        <?php } ?>
+    </table>
+    <p class="space5">donors table</p>
     <table class="table table-bordered space27">
         <tr>
             <th>First Name</th>

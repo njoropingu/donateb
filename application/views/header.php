@@ -24,9 +24,7 @@
       <li class="nav-item active">
         <a class="nav-link white" href="#">Home <span class="sr-only">(current)</span></a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link white" href="<?php echo site_url('admin/dashboard/add_param')?>">Parameters</a>
-      </li>
+     
     </ul>
     <form class="form-inline my-2 my-lg-0">
       <input class="form-control mr-sm-2" name="keyword" method="get" action="<?php echo base_url()?>welcome/search" type="search" placeholder="Search" aria-label="Search">

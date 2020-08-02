@@ -12,6 +12,7 @@ class Dashboard extends CI_Controller{
    function index(){
        
       $this->load->view('header');
+      $data['parameter']= $this->donor_model->getParameters();
        $data['donors']=$this->donor_model->getDonors();
        $this->load->view('dashboard',$data);
    } 
@@ -20,22 +21,16 @@ class Dashboard extends CI_Controller{
        $this->session->sess_destroy();
        redirect('login');
    } 
-   function parameters(){
-       $this->form_validation->set_rules('secret','Secret','required');
-       $this->form_validation->set_rules('conkey','Key','required');
-       if($this->form_validation->run()){
-           $arr=array(
-                   'secret'=> $this->input->post('secret'),
-                   'conkey'=> $this->input->post('conkey')
-                   );
-           $this->donor_model->parameters($arr);
-           $this->add_param();
-       }
-       
+   function update($id){
+   $this->donor_model->update($id);
+   redirect('dashboard');
    }
-   function add_param(){
-       $this->load->view('header');
-       $this->load->view('add_parameters');
+   function edit($id){
+       $data['param']= $this->donor_model->getById($id);
+       $this->load->view('header',$data);
+       $this->load->view('edit_parameters',$data);
    }
+   
+   
 }
 

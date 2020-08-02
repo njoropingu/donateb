@@ -6,13 +6,19 @@ class Donor_model extends CI_Model{
         $this->db->insert('donors',$data);
     }
     function getDonors(){
-      return  $this->db->get('donors')->result();
+      return  $this->db->get_where('donors')->row();
     }
-    function parameters($arr){
-      return  $this->db->insert('param',$arr);
+    function update($id){
+        $arr['secret'] = $this->input->post('secret');
+        $arr['conkey'] = $this->input->post('conkey');                 
+      $this->db->where(array('id'=>$id));
+      $this->db->update('param',$arr);
     }
-    function getParameters(){
-        return $this->db->get('param')->row();
+ function getParameters(){
+     return $this->db->get('param')->result();
+ }
+    function getById($id){
+        return $this->db->get_where('param',array('id'=>$id))->row();
     }
     function details($arr){
         $this->db->insert('donors',$arr);
