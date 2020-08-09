@@ -1,9 +1,9 @@
--- phpMyAdmin SQL Dumps
+-- phpMyAdmin SQL Dump
 -- version 5.0.2
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 31, 2020 at 10:29 PM
+-- Generation Time: Aug 09, 2020 at 05:13 PM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.2.30
 
@@ -31,18 +31,18 @@ CREATE TABLE `admin` (
   `id` int(100) NOT NULL,
   `name` varchar(255) NOT NULL,
   `email` text NOT NULL,
-  `password` varchar(255) NOT NULL
+  `password` varchar(255) NOT NULL,
+  `created_at` date NOT NULL DEFAULT current_timestamp(),
+  `updated_at` date NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `admin`
 --
 
-INSERT INTO `admin` (`id`, `name`, `email`, `password`) VALUES
-(1, 'admin', 'njoropingu@gmail.com', '3b2b7c969137c361c148df47220d50bc'),
-(2, 'raila', 'njoropingu@gmail.com', '3b2b7c969137c361c148df47220d50bc'),
-(3, 'admin', 'admin@admin.com', 'e10adc3949ba59abbe56e057f20f883e'),
-(4, 'ben', 'benmill@gmail.com', 'e10adc3949ba59abbe56e057f20f883e');
+INSERT INTO `admin` (`id`, `name`, `email`, `password`, `created_at`, `updated_at`) VALUES
+(1, 'admin', 'njoropingu@gmail.com', '3b2b7c969137c361c148df47220d50bc', '2020-08-09', '2020-08-09'),
+(2, 'raila', 'njoropingu@gmail.com', '3b2b7c969137c361c148df47220d50bc', '2020-08-09', '2020-08-09');
 
 -- --------------------------------------------------------
 
@@ -68,13 +68,10 @@ CREATE TABLE `donors` (
 --
 
 INSERT INTO `donors` (`id`, `first_name`, `last_name`, `merchant_id`, `status`, `transaction_code`, `phone`, `description`, `amount`, `date`) VALUES
-(1, 'bernard', '', '', '', '', '0723829300', '', '999', ''),
-(2, 'ryan', 'njoroge', '2', 'completed', 'WELCOME', '0723829300', '', '100', 'TODAY'),
-(3, 'pressure', 'kamau', '27', 'PENDING', '02a2d8d7-7ab8-481f-8fa2-5b0cce3ba616', '0723829300', 'donation', '3', '2020-07-30 15:37:33'),
-(4, 'ben', 'ben', '28', 'PENDING', '1b209e0e-514d-4ac7-b83d-804787a551a7', '0723829300', 'test', '10', '2020-07-31 06:16:36'),
-(5, 'de', 'de', '32', 'PENDING', 'f1dfaaf5-41ce-44cb-b437-6edeedf70dd3', '0723829300', 'donation', '100', '2020-07-31 06:36:45'),
-(6, 'biden', 'b', '34', 'PENDING', '1cf1b1fa-4873-4dd0-b9cb-2ddf5fdbea04', '0723829300', 'r', '1', '2020-07-31 07:10:22'),
-(7, 'caster', 'fai', '35', 'PENDING', 'afee7b73-0031-4e86-beb7-dc7f296e5c05', '0723829300', 'donation', '10', '2020-07-31 07:34:22');
+(7, 'caster', 'fai', '35', 'PENDING', 'afee7b73-0031-4e86-beb7-dc7f296e5c05', '0723829300', 'donation', '10', '2020-07-31 07:34:22'),
+(8, 'bbeenn', 'bbeenn', '38', 'PENDING', 'b6700bc1-6333-46d4-b3e5-4cd751538f20', '0723829300', 'bbeenn', '20', '2020-08-08 09:24:51'),
+(9, 'vipi', 'vipi', '42', 'PENDING', '83214a43-d83a-45d5-8075-9e776faa1da9', '0723829300', 'bbeenn', '7', '2020-08-09 17:27:46'),
+(10, 'test', 'tset', '43', 'PENDING', 'dede5af6-d013-4fe0-b329-812f149bc825', '0723829300', 'bbeenn', '1', '2020-08-09 18:06:39');
 
 -- --------------------------------------------------------
 
@@ -87,6 +84,13 @@ CREATE TABLE `param` (
   `conkey` varchar(255) NOT NULL,
   `secret` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `param`
+--
+
+INSERT INTO `param` (`id`, `conkey`, `secret`) VALUES
+(1, 'benadss', 'nnaa');
 
 --
 -- Indexes for dumped tables
@@ -118,7 +122,7 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `donors`
 --
 ALTER TABLE `donors`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

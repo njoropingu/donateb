@@ -8,12 +8,34 @@ class Donor_model extends CI_Model{
     function getDonors(){
       return  $this->db->get_where('donors')->row();
     }
-    function update($id){
-        $arr['secret'] = $this->input->post('secret');
-        $arr['conkey'] = $this->input->post('conkey');                 
-      $this->db->where(array('id'=>$id));
-      $this->db->update('param',$arr);
+ function getAllDonors(){
+      return  $this->db->get_where('donors')->result();
     }
+    function update($id,$post){
+                      
+      $this->db->where(array('id'=>$id));
+      $this->db->update('param',$post);
+    }
+    function updateParam($conkey,$secret){
+       
+            $url = 'http://localhost/donate/parameters';
+            $client=curl_int($url);
+            $arr = array(
+                
+                'conkey' => $conkey,
+                'secret' => $secret
+                    );
+            
+            curl_setopt($client,CURLOPT_POST,true);
+            curl_setopt($client, CURLOPT_POSTFIELDS, $arr);
+//            curl_setopt($client, CURLOPT_RETURNTRANSFER, true);
+            $response= curl_exec($client);
+            echo json_encode($response);
+            log_message('debug', 'Post response :: ' . json_encode($response));
+            $curl_close($client);
+        }
+    
+    
  function getParameters(){
      return $this->db->get('param')->result();
  }
