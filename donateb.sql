@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 09, 2020 at 05:13 PM
+-- Generation Time: Aug 10, 2020 at 09:41 AM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.2.30
 
@@ -32,8 +32,8 @@ CREATE TABLE `admin` (
   `name` varchar(255) NOT NULL,
   `email` text NOT NULL,
   `password` varchar(255) NOT NULL,
-  `created_at` date NOT NULL DEFAULT current_timestamp(),
-  `updated_at` date NOT NULL DEFAULT current_timestamp()
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -41,8 +41,8 @@ CREATE TABLE `admin` (
 --
 
 INSERT INTO `admin` (`id`, `name`, `email`, `password`, `created_at`, `updated_at`) VALUES
-(1, 'admin', 'njoropingu@gmail.com', '3b2b7c969137c361c148df47220d50bc', '2020-08-09', '2020-08-09'),
-(2, 'raila', 'njoropingu@gmail.com', '3b2b7c969137c361c148df47220d50bc', '2020-08-09', '2020-08-09');
+(1, 'admin', 'njoropingu@gmail.com', '3b2b7c969137c361c148df47220d50bc', '2020-08-08 21:00:00', '2020-08-08 21:00:00'),
+(2, 'raila', 'njoropingu@gmail.com', '3b2b7c969137c361c148df47220d50bc', '2020-08-08 21:00:00', '2020-08-08 21:00:00');
 
 -- --------------------------------------------------------
 
@@ -90,7 +90,7 @@ CREATE TABLE `param` (
 --
 
 INSERT INTO `param` (`id`, `conkey`, `secret`) VALUES
-(1, 'benadss', 'nnaa');
+(1, 'donater', 'nnaay');
 
 --
 -- Indexes for dumped tables

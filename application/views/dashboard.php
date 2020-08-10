@@ -15,6 +15,7 @@
             <td><a href="<?php echo site_url('dashboard/edit/'.$param->id)?>" class="btn btn-primary">Update Parameters</a></td>
         </tr>
         <?php } ?>
+        
     </table>
     <p class="space5">donors table</p>
     <table class="table table-bordered space27">
